@@ -1,12 +1,9 @@
-version: '3'
+version: '2'
 
 services:
   server:
     container_name: raphael_node
     build: '.'
-    volumes:
-      - ./:/node-app
-      - ./node_modules:/node-app/node_modules
     environment:
       NODE_ENV: development
     depends_on:
@@ -21,5 +18,5 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      - ./data:/data/db
+      - /data:/data/db
       

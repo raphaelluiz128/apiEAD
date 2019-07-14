@@ -2,21 +2,26 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const PORT = 3200;
-const HOST = '0.0.0.0';
+
+const clientes = require('./routes/clientes');
+
 //para o docker entender que deve apenas repassar a porta 3000
+
 const app = express();
+const server = require('http').Server(app);
 app.use(bodyParser.json());
 
-mongoose
-  .connect('mongodb://localhost:27017/apiEAD', {
-    useNewUrlParser: true
-  })
-  .then(result => {
-    console.log('MongoDB Conectado');
-  })
-  .catch(error => {
-    console.log('o erro é', error);
-  });
+app.use('/api/clientes', clientes);
 
 
-app.listen(PORT, HOST,() => console.log('server ativo em 3200'));
+mongoose.connect('mongodb://192.168.1.103:27017/apiEAD', {
+        useNewUrlParser: true
+    })
+    .then(result => {
+        console.log('MongoDB Conectado');
+    })
+    .catch(error => {
+        console.log('o erro éeee', error);
+    });
+
+server.listen(PORT, () => console.log('server ativo em 3200'));
