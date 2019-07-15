@@ -38,4 +38,8 @@ mongoose.connect('mongodb://192.168.1.103:27017/apiEAD', {
 */
 // porta sem usar heroku server.listen(3200, () => console.log('server ativo em 3200'));
 // variável de ambiente PORT do heroku
-server.listen(process.env.PORT || 3200);
+
+
+server.listen((process.env.PORT || 3200), function(){
+    console.log('listening on *:3200');
+  });
