@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       .catch(error => res.status(500).json('o erro é',error));
   });
 
-router.post('/novo', (req, res) => {
+router.post('/', (req, res) => {
   const novoCliente = new Cliente({
     nome: req.body.nome,
     dataNascimento: req.body.dataNascimento,

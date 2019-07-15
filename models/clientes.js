@@ -14,10 +14,11 @@ const clientesSchema = new Schema({
     type: String,
     require: true
   },
-  servicos: {
-    type: Number,
-    require: true
-  },
+  servicos: [{
+    type: String,
+    enum: ['Sistema WEB', 'Aplicativo iOS', 'Aplicativo Android', 'Website Estático', 'Website Gerenciável'],
+    required: true
+  }],
   dataCriacao: {
     type: Date,
     default: Date.now
