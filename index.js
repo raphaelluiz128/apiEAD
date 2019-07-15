@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 
 app.use('/api/clientes', clientes);
 
-// mongoose cluster online
-mongoose.connect('mongodb+srv://deploy:admin123@cluster0-s7wbr.mongodb.net/test?retryWrites=true&w=majority', {
+
+mongoose.connect('mongodb://admin:admin123@ds143156.mlab.com:43156/heroku_n2s08gc8', {
         useNewUrlParser: true
     })
     .then(result => {
