@@ -17,3 +17,24 @@ if you don't use the docker:
 1- use the command npm start
 
 2- use node index.js to start the server
+
+
+
+##ROUTES
+url base 'https://apiead.herokuapp.com/api/clientes';
+include data
+final url '/'  method post
+edit data
+final url 'editar/:id' method put
+delete data
+final url 'delete/:id' method delete
+get data
+final url '/' method get
+
+##Example of body for user include data:
+
+{"nome":"raphael",
+	"dataNascimento":"03/11/1988",
+	"documento":"19202191",
+	"servicos":["Aplicativo iOS","Aplicativo Android"]
+}
